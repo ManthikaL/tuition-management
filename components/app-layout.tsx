@@ -73,7 +73,11 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
         {/* Logo */}
         <div className="p-6 flex items-center justify-between">
           {sidebarOpen && (
-            <Link href="/dashboard" className="flex items-center gap-2">
+            <Link
+              href="/dashboard"
+              onClick={() => setSidebarOpen(false)}
+              className="flex items-center gap-2"
+            >
               <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-primary-foreground font-bold">
                 T
               </div>
@@ -90,6 +94,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
             <Link
               key={item.href}
               href={item.href}
+              onClick={() => setSidebarOpen(true)}
               className="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-accent hover:text-accent-foreground transition-colors group relative"
             >
               <span className="text-xl">{item.icon}</span>
@@ -140,7 +145,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
             {sidebarOpen && <span className="ml-2 text-xs">Logout</span>}
           </Button>
 
-          <Button
+          {/* <Button
             variant="ghost"
             size="sm"
             onClick={() => setSidebarOpen(!sidebarOpen)}
@@ -154,7 +159,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
             ) : (
               <Menu className="w-4 h-4" />
             )}
-          </Button>
+          </Button> */}
         </div>
       </div>
 
